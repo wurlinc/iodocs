@@ -1,46 +1,18 @@
 {
-    "klout": {
-        "name": "Klout API",
-        "protocol": "http",
-        "baseURL": "api.klout.com",
-        "publicPath": "/1",
-        "auth": "key",
-        "keyParam": "key"
-    },
-    "fanfeedr": {
-        "name": "FanFeedr Sports Basic API",
-        "protocol": "http",
-        "baseURL": "ffapi.fanfeedr.com",
-        "publicPath": "",
-        "auth": "key",
-        "keyParam": "api_key"
-    },
-    "alibris": {
-        "name": "Alibris API",
-        "protocol": "http",
-        "baseURL": "api.alibris.com",
-        "publicPath": "/v1/public",
+    "wurlv1": {
+        "name": "Wurl API version 1",
+        "protocol": "https",
+        "baseURL": "api.wurl.com",
+        "publicPath": "/api",
         "auth": "key",
         "keyParam": "apikey"
     },
-    "usatoday": {
-        "name": "USA TODAY Census API",
-         "protocol": "http",
-         "baseURL": "api.usatoday.com",
-         "publicPath": "/open",
-         "auth": "key",
-         "keyParam": "api_key"
-    },
-    "simplegeo": {
-        "name": "SimpleGeo",
-        "protocol": "http",
-        "baseURL": "api.simplegeo.com",
-        "publicPath": "",
-        "auth": "oauth",
-        "oauth": {
-             "type": "two-legged",
-             "version": "1.0",
-             "crypt": "HMAC-SHA1"
-        }
+    "wurlv2": {
+        "name": "Wurl API version 2 (Coming Soon)",
+        "protocol": "https",
+        "baseURL": "api.wurl.com",
+        "publicPath": "/v2",
+        "auth": "key",
+        "keyParam": "apikey"
     }
 }

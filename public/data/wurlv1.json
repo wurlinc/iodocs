@@ -1,0 +1,76 @@
+{
+  "endpoints": [
+    {
+      "name": "Search",
+      "methods": [
+        {
+          "MethodName":"search",
+          "Synopsis":"Search for shows or videos",
+          "HTTPMethod":"GET",
+          "URI":"/search",
+          "RequiresOAuth": "N",
+          "parameters":[
+            {
+              "Name":"searchTerms",
+              "Required": "Y",
+              "Type":"string",
+              "Description":"The keyword terms to search for."
+            },
+            {
+              "Name":"startPage",
+              "Required":"N",
+              "Type": "integer",
+              "Default":"",
+              "Description":"The page of results to return.  Defaults to '1'.  May not be honored if there isn't enough pages of results."
+            },
+            {
+              "Name":"perPage",
+              "Required":"N",
+              "Type": "integer",
+              "Default":"",
+              "Description":"The number of search results per page of results.  Defaults is 20.  Maximum is limited to 1000."
+            },
+            {
+              "Name":"order",
+              "Required":"N",
+              "Type": "enumerated",
+              "EnumeratedList":[
+                "metachannels_rank",
+                "keyword",
+                "recency"
+              ],
+              "Description":"The order to return results in.  If not specified, uses metachannels_rank."
+            },
+            {
+              "Name":"types",
+              "Required":"N",
+              "Type": "enumerated",
+              "EnumeratedList":[
+                "shows",
+                "episodes"
+              ],
+              "Description":"The type of search results items to restrict the search to.  Default is shows."
+            },
+            {
+              "Name":"fields",
+              "Required": "N",
+              "Type":"string",
+              "Description":"Restrict the search to just the fields specified.  Supported fields are: 'title', 'description', 'keywords', 'show_title'.  If multiple fields are specified separate by a comma."
+            },
+            {
+              "Name":"format",
+              "Required": "N",
+              "Type":"enumerated",
+              "EnumeratedList":[
+                "json",
+                "xml"
+              ],
+              "Description":"The keyword terms to search for."
+            }
+
+          ]
+        }
+      ]
+    }
+  ]
+}
