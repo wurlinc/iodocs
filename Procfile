@@ -1,1 +1,1 @@
-docs: node ./app.js
+docs: node app.js
