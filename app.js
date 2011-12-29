@@ -643,6 +643,6 @@ app.get('/:api([^\.]+)', function(req, res) {
 
 if (!module.parent) {
     var port = process.env.PORT || config.port || '3000';
-    app.listen(config.port, config.address);
+    app.listen(port, config.address);
     console.log("Express server listening on port %d", app.address().port);
 }
