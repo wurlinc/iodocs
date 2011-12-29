@@ -65,9 +65,56 @@
                 "json",
                 "xml"
               ],
-              "Description":"The keyword terms to search for."
+              "Description":"The response format"
             }
 
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shows",
+      "methods": [
+        {
+          "MethodName":"shows",
+          "Synopsis":"Retreive a specific show",
+          "HTTPMethod":"GET",
+          "URI":"/shows/:id",
+          "RequiresOAuth": "N",
+          "parameters":[
+            {
+              "Name":"id",
+              "Required":"Y",
+              "Type":"integer",
+              "Default":"",
+              "Description": "The identifier of the show"
+            },
+            {
+              "Name":"startPage",
+              "Required":"N",
+              "Type": "integer",
+              "Default":"",
+              "Description":"The page of video results to return.  Defaults to '1'.  May not be honored if there isn't enough pages of results."
+            },
+            {
+              "Name":"perPage",
+              "Required":"N",
+              "Type": "integer",
+              "Default":"",
+              "Description":"The number of videos per page.  Default is 5."
+            },
+             {
+              "Name":"format",
+              "Required": "N",
+              "Type":"enumerated",
+              "EnumeratedList":[
+                "json",
+                "xml"
+              ],
+              "Description":"The response format."
+            }
+
+            
           ]
         }
       ]
