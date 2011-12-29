@@ -52,7 +52,7 @@ var defaultDB = '0';
 var db;
 if (process.env.REDISTOGO_URL) {
    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-   console.log("RedisToGo:" + rtg);
+   console.log("RedisToGo:" + util.inspect(rtg));
    db = require("redis").createClient(rtg.port, rtg.hostname);
    db.auth(rtg.auth.split(":")[1]);
 } else {
