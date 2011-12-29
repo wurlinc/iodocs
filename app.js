@@ -50,19 +50,19 @@ try {
 //
 var defaultDB = '0';
 
-var redisConfig;
+var redisConfig = {};
 if (process.env.REDISTOGO_URL) {
    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
    console.log("RedisToGo:" + util.inspect(rtg));
    redisConfig.port = rtg.port;
    redisConfig.hostname = rtg.hostname;
-   redisconfig.password = rtg.auth.split(":")[1];
+   redisConfig.password = rtg.auth.split(":")[1];
 //   db = require("redis").createClient(rtg.port, rtg.hostname);
 //   db.auth(rtg.auth.split(":")[1]);
 } else {
    redisConfig.port = config.redis.port
    redisConfig.hostname = config.redis.host;
-   redisconfig.password = config.redis.password;
+   redisConfig.password = config.redis.password;
 //   db = redis.createClient(config.redis.port, config.redis.host);
 //   db.auth(config.redis.password);
 }
