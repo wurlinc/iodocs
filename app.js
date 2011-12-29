@@ -49,8 +49,18 @@ try {
 // Redis connection
 //
 var defaultDB = '0';
-var db = redis.createClient(config.redis.port, config.redis.host);
-db.auth(config.redis.password);
+var db;
+if (process.env.REDISTOGO_URL) {
+   var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+   db = require("redis").createClient(rtg.port, rtg.hostname);
+   db.auth(rtg.auth.split(":")[1]);
+} else {
+   db = redis.createClient(config.redis.port, config.redis.host);
+   db.auth(config.redis.password);
+}
+
+//var db = redis.createClient(config.redis.port, config.redis.host);
+//db.auth(config.redis.password);
 
 // Select our DB
 db.on("connect", function() {
