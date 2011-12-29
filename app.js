@@ -49,19 +49,26 @@ try {
 // Redis connection
 //
 var defaultDB = '0';
-var db;
+
+var redisConfig;
 if (process.env.REDISTOGO_URL) {
    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
    console.log("RedisToGo:" + util.inspect(rtg));
-   db = require("redis").createClient(rtg.port, rtg.hostname);
-   db.auth(rtg.auth.split(":")[1]);
+   redisConfig.port = rtg.port;
+   redisConfig.hostname = rtg.hostname;
+   redisconfig.password = rtg.auth.split(":")[1];
+//   db = require("redis").createClient(rtg.port, rtg.hostname);
+//   db.auth(rtg.auth.split(":")[1]);
 } else {
-   db = redis.createClient(config.redis.port, config.redis.host);
-   db.auth(config.redis.password);
+   redisConfig.port = config.redis.port
+   redisConfig.hostname = config.redis.host;
+   redisconfig.password = config.redis.password;
+//   db = redis.createClient(config.redis.port, config.redis.host);
+//   db.auth(config.redis.password);
 }
 
-//var db = redis.createClient(config.redis.port, config.redis.host);
-//db.auth(config.redis.password);
+var db = redis.createClient(redisConfig.port, redisConfig.hostname);
+db.auth(redisConfig.password);
 
 // Select our DB
 db.on("connect", function() {
@@ -103,9 +110,9 @@ app.configure(function() {
     app.use(express.session({
         secret: config.sessionSecret,
         store:  new RedisStore({
-            'host':   config.redis.host,
-            'port':   config.redis.port,
-            'pass':   config.redis.password,
+            'host':   redisConfig.hostname,
+            'port':   redisConfig.port,
+            'pass':   redisConfig.password,
             'maxAge': 1209600000
         })
     }));
