@@ -76,7 +76,7 @@
       "name": "Shows",
       "methods": [
         {
-          "MethodName":"shows",
+          "MethodName":"show",
           "Synopsis":"Retreive a specific show",
           "HTTPMethod":"GET",
           "URI":"/shows/:id",
