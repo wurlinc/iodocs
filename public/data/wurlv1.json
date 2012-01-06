@@ -103,7 +103,7 @@
               "Default":"",
               "Description":"The number of videos per page.  Default is 5."
             },
-             {
+            {
               "Name":"format",
               "Required": "N",
               "Type":"enumerated",
@@ -113,8 +113,56 @@
               ],
               "Description":"The response format."
             }
-
-            
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Genres",
+      "methods": [
+        {
+          "MethodName":"genres",
+          "Synopsis":"Retreive all genres",
+          "HTTPMethod":"GET",
+          "URI":"/genres",
+          "RequiresOAuth": "N",
+          "parameters":[
+            {
+              "Name":"format",
+              "Required": "N",
+              "Type":"enumerated",
+              "EnumeratedList":[
+                "json",
+                "xml"
+              ],
+              "Description":"The response format."
+            }
+          ]
+        },
+        {
+          "MethodName":"genre",
+          "Synopsis":"Retrieve a specific genre",
+          "HTTPMethod":"GET",
+          "URI":"/genres/:id",
+          "RequiresOAuth":"N",
+          "parameters":[
+            {
+              "Name":"id",
+              "Required":"Y",
+              "Type":"integer",
+              "Default":"",
+              "Description": "The 'slug' of the genre. 'arts', 'business', etc."
+            },
+            {
+              "Name":"format",
+              "Required": "N",
+              "Type":"enumerated",
+              "EnumeratedList":[
+                "json",
+                "xml"
+              ],
+              "Description":"The response format."
+            }
           ]
         }
       ]
